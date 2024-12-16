@@ -19,11 +19,15 @@ const DashboardContent = () => {
 const Dashboard = () => {
   const router = useRouter();
   const [loading, setLoading] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleSidebar = () => setIsOpen(!isOpen);
 
   useEffect(() => {
     const checkUser = async () => {
-      const { data: { user } } = await supabase.auth.getUser();
-
+      const {
+        data: { user },
+      } = await supabase.auth.getUser();
       if (!user) {
         router.push("/login");
       } else {
@@ -38,8 +42,12 @@ const Dashboard = () => {
 
   return (
     <div className="min-h-screen bg-purple-100 text-gray-900 flex">
-      <Sidebar />
-      <main className="flex-1 ml-16 transition-all duration-300">
+      <Sidebar user={null} isOpen={isOpen} toggleSidebar={toggleSidebar} />
+      <main
+        className={`transition-all duration-300 ${
+          isOpen ? "ml-64" : "ml-16"
+        } flex-1`}
+      >
         <DashboardContent />
       </main>
     </div>

@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import Link from "next/link";
 import {
   FaTachometerAlt,
@@ -14,17 +13,11 @@ import {
   FaHome,
 } from "react-icons/fa";
 
-const Sidebar = ({ user }) => {
-  const [isOpen, setIsOpen] = useState(false);
-
+const Sidebar = ({ user, isOpen, toggleSidebar }) => {
   // Default avatars for male and female users
   const defaultAvatars = {
     male: "https://cdn-icons-png.flaticon.com/512/4140/4140048.png",
     female: "https://cdn-icons-png.flaticon.com/512/4140/4140037.png",
-  };
-  
-  const toggleSidebar = () => {
-    setIsOpen(!isOpen);
   };
 
   // Navigation items with icon and label
@@ -41,20 +34,20 @@ const Sidebar = ({ user }) => {
   ];
 
   return (
-    <div 
+    <div
       className={`fixed top-0 left-0 h-full bg-purple-700 text-white 
         transition-all duration-300 ease-in-out z-20
-        ${isOpen ? 'w-64' : 'w-16'}`}
+        ${isOpen ? "w-64" : "w-16"}`}
     >
       {/* Header with Toggle Button */}
       <div className="relative p-4 h-16">
-  <button
-    onClick={toggleSidebar}
-    className="absolute top-4 right-4 text-2xl"
-  >
-    {isOpen ? <FaTimes /> : <FaBars />}
-  </button>
-</div>
+        <button
+          onClick={toggleSidebar}
+          className="absolute top-4 right-4 text-2xl"
+        >
+          {isOpen ? <FaTimes /> : <FaBars />}
+        </button>
+      </div>
 
       {/* Profile Section */}
       {isOpen && (
@@ -77,11 +70,11 @@ const Sidebar = ({ user }) => {
       {/* Navigation Links */}
       <nav className="flex flex-col space-y-2 px-2">
         {navItems.map((item) => (
-          <Link 
-            key={item.href} 
-            href={item.href} 
+          <Link
+            key={item.href}
+            href={item.href}
             className={`flex items-center gap-3 text-white hover:bg-purple-600 p-2 rounded-md 
-              ${isOpen ? 'justify-start' : 'justify-center'}`}
+              ${isOpen ? "justify-start" : "justify-center"}`}
           >
             <span className="text-xl">{item.icon}</span>
             {isOpen && <span>{item.label}</span>}
