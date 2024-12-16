@@ -11,15 +11,19 @@ const Navbar = () => {
 
   useEffect(() => {
     const getUserSession = async () => {
-      const { data: { user } } = await supabase.auth.getUser();
+      const {
+        data: { user },
+      } = await supabase.auth.getUser();
       setUser(user);
     };
 
     getUserSession();
 
-    const { data: authListener } = supabase.auth.onAuthStateChange((_, session) => {
-      setUser(session?.user || null);
-    });
+    const { data: authListener } = supabase.auth.onAuthStateChange(
+      (_, session) => {
+        setUser(session?.user || null);
+      }
+    );
 
     return () => {
       authListener.subscription.unsubscribe();
@@ -41,10 +45,24 @@ const Navbar = () => {
 
       {/* Desktop and Tablet Navigation */}
       <ul className="hidden sm:flex gap-4 items-center">
-        <Link href="/"><li className="hover:underline cursor-pointer">Home</li></Link>
-        <Link href="/about"><li className="hover:underline cursor-pointer">About</li></Link>
-        <Link href="/shorten"><li className="hover:underline cursor-pointer">Shorten</li></Link>
-        <Link href="/contact"><li className="hover:underline cursor-pointer">Contact Us</li></Link>
+        <Link href="/">
+          <li className="hover:underline cursor-pointer">Home</li>
+        </Link>
+        {user?.name ?? (
+          <Link href="/dashboard">
+            <li className="hover:underline cursor-pointer">Dashboard</li>
+          </Link>
+        )}
+
+        <Link href="/about">
+          <li className="hover:underline cursor-pointer">About</li>
+        </Link>
+        <Link href="/shorten">
+          <li className="hover:underline cursor-pointer">Shorten</li>
+        </Link>
+        <Link href="/contact">
+          <li className="hover:underline cursor-pointer">Contact Us</li>
+        </Link>
         <li className="flex gap-2">
           {user ? (
             <button

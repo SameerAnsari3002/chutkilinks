@@ -37,16 +37,11 @@ const Dashboard = () => {
   if (loading) return <Loader />;
 
   return (
-    <div className="min-h-screen bg-purple-100 text-gray-900">
-      <div className="flex flex-col md:flex-row min-h-screen">
-        {/* Sidebar (hidden on smaller screens) */}
-        <div className="w-full md:w-1/4 bg-purple-700 text-white p-4">
-          <Sidebar />
-        </div>
-
-        {/* Main content area */}
+    <div className="min-h-screen bg-purple-100 text-gray-900 flex">
+      <Sidebar />
+      <main className="flex-1 ml-16 transition-all duration-300">
         <DashboardContent />
-      </div>
+      </main>
     </div>
   );
 };

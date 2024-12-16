@@ -3,13 +3,6 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { supabase } from "@/lib/supabaseClient.js";
 import Link from "next/link";
-// import localFont from "next/font/local";
-
-// const poppins = localFont({
-//   src: "./fonts/Poppins-ExtraBold.ttf",
-//   variable: "--font-poppins",
-//   weight: "100 900",
-// });
 
 export default function Signup() {
   const [email, setEmail] = useState("");
