@@ -24,13 +24,13 @@ const Sidebar = ({ user, isOpen, toggleSidebar }) => {
   const navItems = [
     { icon: <FaHome />, label: "Home", href: "/" },
     { icon: <FaTachometerAlt />, label: "Dashboard", href: "/dashboard" },
-    { icon: <FaLink />, label: "Manage Links", href: "/manage-links" },
-    { icon: <FaDollarSign />, label: "Payments", href: "/payments" },
-    { icon: <FaToolbox />, label: "Tools", href: "/tools" },
-    { icon: <FaUserFriends />, label: "Referrals", href: "/referrals" },
-    { icon: <FaCog />, label: "Settings", href: "/settings" },
-    { icon: <FaHeadset />, label: "Support", href: "/support" },
-    { icon: <FaGlobe />, label: "Global", href: "/global" },
+    { icon: <FaLink />, label: "Manage Links", href: "/dashboard/manage-links" },
+    { icon: <FaDollarSign />, label: "Payments", href: "/dashboard/payment" },
+    { icon: <FaToolbox />, label: "Tools", href: "/dashboard/tools" },
+    { icon: <FaUserFriends />, label: "Referrals", href: "/dashboard/referrals" },
+    { icon: <FaCog />, label: "Settings", href: "/dashboard/settings" },
+    { icon: <FaHeadset />, label: "Support", href: "/dashboard/support" },
+    { icon: <FaGlobe />, label: "Global", href: "/dashboard/global" },
   ];
 
   return (
@@ -63,7 +63,7 @@ const Sidebar = ({ user, isOpen, toggleSidebar }) => {
             alt="Profile"
             className="w-16 h-16 rounded-full border-2 border-purple-500 mb-2"
           />
-          <h2 className="font-semibold text-lg">{user?.username || "User"}</h2>
+          <h2 className="font-semibold text-lg">{user?.user_metadata?.email || "User"}</h2>
         </div>
       )}
 

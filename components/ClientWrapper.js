@@ -6,13 +6,12 @@ import Navbar from "@/components/Navbar";
 const ClientWrapper = ({ children }) => {
   const pathname = usePathname();
 
-  // Hide Navbar on specific paths
-  const hideNavbarPaths = ["/dashboard"];
-  const showNavbar = !hideNavbarPaths.includes(pathname);
+  // Hide Navbar for /dashboard and all nested routes under it
+  const hideNavbar = pathname.startsWith("/dashboard");
 
   return (
     <>
-      {showNavbar && <Navbar />}
+      {!hideNavbar && <Navbar />}
       {children}
     </>
   );
