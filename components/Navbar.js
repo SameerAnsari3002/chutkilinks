@@ -57,9 +57,6 @@ const Navbar = () => {
         <Link href="/about">
           <li className="hover:underline cursor-pointer">About</li>
         </Link>
-        <Link href="/shorten">
-          <li className="hover:underline cursor-pointer">Shorten</li>
-        </Link>
         <Link href="/contact">
           <li className="hover:underline cursor-pointer">Contact Us</li>
         </Link>
@@ -111,11 +108,13 @@ const Navbar = () => {
             <Link href="/" onClick={() => setIsSidebarOpen(false)}>
               <div className="hover:underline">Home</div>
             </Link>
+            {user?.name ?? (
+              <Link href="/" onClick={() => setIsSidebarOpen(false)}>
+                <div className="hover:underline">Dashboard</div>
+              </Link>
+            )}
             <Link href="/about" onClick={() => setIsSidebarOpen(false)}>
               <div className="hover:underline">About</div>
-            </Link>
-            <Link href="/shorten" onClick={() => setIsSidebarOpen(false)}>
-              <div className="hover:underline">Shorten</div>
             </Link>
             <Link href="/contact" onClick={() => setIsSidebarOpen(false)}>
               <div className="hover:underline">Contact Us</div>
