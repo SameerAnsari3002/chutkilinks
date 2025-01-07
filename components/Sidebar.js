@@ -12,26 +12,9 @@ import {
   FaBars,
   FaTimes,
   FaHome,
-  FaSignOutAlt,
 } from "react-icons/fa";
 
 const Sidebar = ({ user, isOpen, toggleSidebar, onLogout }) => {
-  const [isHoveringProfile, setIsHoveringProfile] = useState(false);
-
-  // Utility function for getting user avatar
-  const getAvatar = () => {
-    const defaultAvatars = {
-      male: "https://cdn-icons-png.flaticon.com/512/4140/4140048.png",
-      female: "https://cdn-icons-png.flaticon.com/512/4140/4140037.png",
-    };
-
-    return user?.profileImage
-      ? user.profileImage
-      : user?.gender === "male"
-      ? defaultAvatars.male
-      : defaultAvatars.female;
-  };
-
   // Navigation items
   const navItems = [
     { icon: <FaHome />, label: "Home", href: "/" },
@@ -62,34 +45,6 @@ const Sidebar = ({ user, isOpen, toggleSidebar, onLogout }) => {
           {isOpen ? <FaTimes /> : <FaBars />}
         </button>
       </div>
-
-      {/* Profile Section */}
-      {isOpen && (
-        <div
-          className="flex flex-col items-center relative"
-          onMouseEnter={() => setIsHoveringProfile(true)}
-          onMouseLeave={() => setIsHoveringProfile(false)}
-        >
-          <img
-            src={getAvatar()}
-            alt="Profile"
-            className="w-16 h-16 rounded-full border-2 border-purple-500 mb-2 cursor-pointer"
-          />
-          <h2 className="font-semibold text-lg">{user?.user_metadata?.email || "User"}</h2>
-
-          {/* Hover Modal for Logout */}
-          {/* {isHoveringProfile && (
-            <div className="absolute top-16 left-1/2 transform -translate-x-1/2 bg-white text-gray-900 shadow-lg rounded-md p-1 w-24 z-50">
-              <button
-                onClick={onLogout}
-                className="flex items-center gap-2 hover:bg-gray-200 p-1 rounded-md w-full text-left text-sm"
-              >
-                <FaSignOutAlt /> Logout
-              </button>
-            </div>
-          )} */}
-        </div>
-      )}
 
       {/* Navigation Links */}
       <nav className="flex flex-col space-y-2 px-2 mt-4">
