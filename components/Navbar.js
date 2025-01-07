@@ -46,19 +46,27 @@ const Navbar = () => {
       {/* Desktop and Tablet Navigation */}
       <ul className="hidden sm:flex gap-4 items-center">
         <Link href="/">
-          <li className="hover:underline cursor-pointer">Home</li>
+          <li className="p-2 rounded-md transition duration-300 hover:bg-purple-600">
+            Home
+          </li>
         </Link>
-        {user?.name ?? (
+        {user ? (
           <Link href="/dashboard">
-            <li className="hover:underline cursor-pointer">Dashboard</li>
+            <li className="p-2 rounded-md transition duration-300 hover:bg-purple-600">
+              Dashboard
+            </li>
           </Link>
-        )}
+        ) : null}
 
         <Link href="/about">
-          <li className="hover:underline cursor-pointer">About</li>
+          <li className="p-2 rounded-md transition duration-300 hover:bg-purple-600">
+            About
+          </li>
         </Link>
         <Link href="/contact">
-          <li className="hover:underline cursor-pointer">Contact Us</li>
+          <li className="p-2 rounded-md transition duration-300 hover:bg-purple-600">
+            Contact Us
+          </li>
         </Link>
         <li className="flex gap-2">
           {user ? (
@@ -106,18 +114,27 @@ const Navbar = () => {
           </button>
           <nav className="flex flex-col gap-4">
             <Link href="/" onClick={() => setIsSidebarOpen(false)}>
-              <div className="hover:underline">Home</div>
+              <div className="p-2 rounded-md transition duration-300 hover:bg-purple-600">
+                Home
+              </div>
             </Link>
-            {user?.name ?? (
-              <Link href="/" onClick={() => setIsSidebarOpen(false)}>
-                <div className="hover:underline">Dashboard</div>
+            {user ? (
+              <Link href="/dashboard" onClick={() => setIsSidebarOpen(false)}>
+                <div className="p-2 rounded-md transition duration-300 hover:bg-purple-600">
+                  Dashboard
+                </div>
               </Link>
-            )}
+            ) : null}
+
             <Link href="/about" onClick={() => setIsSidebarOpen(false)}>
-              <div className="hover:underline">About</div>
+              <div className="p-2 rounded-md transition duration-300 hover:bg-purple-600">
+                About
+              </div>
             </Link>
             <Link href="/contact" onClick={() => setIsSidebarOpen(false)}>
-              <div className="hover:underline">Contact Us</div>
+              <div className="p-2 rounded-md transition duration-300 hover:bg-purple-600">
+                Contact Us
+              </div>
             </Link>
             <div className="flex flex-col gap-2 mt-4">
               {user ? (
