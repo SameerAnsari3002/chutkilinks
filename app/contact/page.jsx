@@ -35,7 +35,7 @@ export default function ContactUs() {
         </h2>
         {success && (
           <p className="text-green-600 text-center mb-4">
-            Message sent successfully! We'll get back to you soon.
+            Message sent successfully! We&apos;ll get back to you soon.
           </p>
         )}
         <form onSubmit={handleSubmit} className="space-y-4">

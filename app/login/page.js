@@ -23,7 +23,7 @@ export default function Login() {
   return (
     <div className="min-h-screen bg-purple-100 flex items-center justify-center p-4">
       <div className="w-full max-w-md bg-white p-8 rounded-lg shadow-lg">
-        <h2 className={`text-3xl font-bold text-purple-800 text-center mb-6`}>
+        <h2 className={"text-3xl font-bold text-purple-800 text-center mb-6"}>
           Login
         </h2>
         <form onSubmit={handleLogin} className="space-y-4">
@@ -52,7 +52,7 @@ export default function Login() {
           </button>
           <div className="text-center mt-4">
             <Link href="/signup" className="text-purple-600 hover:underline">
-              Don't have an account? Sign up here
+              Don&apos;t have an account? Sign up here
             </Link>
           </div>
         </form>

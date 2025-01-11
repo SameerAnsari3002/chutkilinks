@@ -17,7 +17,7 @@ export default function About() {
             never tracked or shared.
           </p>
           <p className="text-lg text-gray-700 leading-relaxed">
-            Whether you're a marketer, developer, or an everyday internet user, 
+            Whether you&apos;re a marketer, developer, or an everyday internet user, 
             our tool is built to save you time and provide seamless functionality. 
             Join thousands of users who trust us to simplify their online sharing 
             experience.
